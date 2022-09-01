@@ -33,12 +33,6 @@ Page({
     this.init();
   },
 
-  clickToOtherMini(e) {
-    wx.navigateToMiniProgram({
-      appId: e.currentTarget.dataset.appId
-    })
-  },
-
   init() {
     this.getImages();
     this.getList();
@@ -64,7 +58,7 @@ Page({
       success(res) {
         console.log(res, 989)
         _.setData({
-          list: _.sortByPlatform(res.data.data),
+          list: res.data.data,
           pageLoading: false,
         })
       },
@@ -124,7 +118,6 @@ Page({
         list: this.sortData(item.list)
       }
     });
-    console.log(sortRes, 666)
     return sortRes;
   },
 

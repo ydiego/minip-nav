@@ -1,1 +1,70 @@
-/* components/list.wxss */
+.list-container {
+  background: #f5f5f5;
+  display: block;
+  padding: 24rpx 24rpx 0 24rpx;
+}
+
+.list-container .list-item {
+  background: #fff;
+  margin-bottom: 24rpx;
+  padding: 8rpx;
+  display: flex;
+  border-radius: 10rpx;
+  font-size: 36rpx;
+}
+
+.list-container .list-item .detail {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.list-container .list-item .detail .header {
+  font-size: 32rpx;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 12rpx;
+}
+
+.list-container .list-item .detail .header .ongoing {
+  color: #6de86d;
+}
+
+.list-container .list-item .detail .header .coming {
+  color: #ff6600;
+}
+
+.list-container .list-item .detail .body {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 12rpx;
+}
+
+.list-container .list-item .detail .name {
+  display: block;
+  margin-right: 12rpx;
+}
+
+.list-container .list-item .detail .desc {
+  display: -webkit-box;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  color: #a5a5a5;
+  font-size: 28rpx;
+}
+
+.list-container .list-item image {
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 25rpx;
+  margin-right: 12rpx;
+}
+
+.list-container .list-item .header {
+  font-size: 24rpx;
+}

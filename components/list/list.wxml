@@ -1,4 +1,19 @@
 <!--components/list.wxml-->
-<view>
-  <list-item wx:for="listData" wx:key="id" wx:for-item="item" item="{{item}}"></list-item>
+<view class="list-container">
+  <block wx:for="{{listData}}" wx:key="id">
+    <view class="list-item" bindtap="clickToOtherMini" data-app-id="{{item.appId}}">
+      <image src="{{domain}}uploads/{{item.logo}}" mode="aspectFill" shape>
+      </image>
+      <view class="detail">
+        <view class="body">
+          <text class="name">{{item.name}}</text>
+          <text class="desc">{{item.desc}}</text>
+        </view>
+        <view class="header" wx:for="{{item.list}}" wx:for-item="listItem">
+          <view class="time">{{listItem.startAt}} - {{listItem.endAt}}</view>
+          <view class="status {{listItem.status === '拍卖中' ? 'ongoing' : 'coming'}}">{{listItem.status}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
 </view>

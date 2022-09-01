@@ -1,6 +1,4 @@
 {
   "component": true,
-  "usingComponents": {
-    "list-item": "/components/list-item/index"
-  }
+  "usingComponents": {}
 }

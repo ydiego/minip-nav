@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "网拍",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "list": "/components/list/list",
+    "t-tabs": "tdesign-miniprogram/tabs/tabs",
+    "t-tab-panel": "tdesign-miniprogram/tabs/tab-panel"
+  }
+}

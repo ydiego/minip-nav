@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="swiper-wrap" wx:if="{{imgSrcs.length}}">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="height: 500rpx;">
+      <block wx:for="{{imgSrcs}}" wx:key="*this">
+        <swiper-item class="swiper-item-wrap">
+          <image src="{{domain}}uploads/{{item.url}}" mode="heightFix" class="t-image__swiper" bindtap="swiperImageClick" data-jump-type="{{item.jumpType}}" data-app-id="{{item.appId}}" data-topic-id="{{item.topicId}}" data-hall-id="{{item.hallId}}">
+          </image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <t-tabs defaultValue="{{0}}" sticky stickyProps="{{stickyProps}}" bind:change="onTabsChange" bind:click="onTabsClick" bind:scroll="onStickyScroll" t-class="custom-tabs">
+    <t-tab-panel label="国内" value="0">
+      <list list="{{countryList}}"></list>
+    </t-tab-panel>
+    <t-tab-panel label="国际" value="1">
+      <list list="{{internationalList}}"></list>
+    </t-tab-panel>
+  </t-tabs>
+
+  <view style="text-align: center; color: #a4a4a4;margin-top: 12rpx;">没有更多数据了</view>
+</view>

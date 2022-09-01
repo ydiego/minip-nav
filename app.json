@@ -2,7 +2,8 @@
   "pages": [
     "pages/home/home",
     "pages/history/index",
-    "pages/concat/concat"
+    "pages/concat/concat",
+    "pages/cate/index"
   ],
   "tabBar": {
     "custom": true,

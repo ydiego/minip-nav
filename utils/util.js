@@ -127,7 +127,7 @@ const phoneRegCheck = (phone) => {
   return phoneRegExp.test(phone);
 };
 
-const domain = 'https://www.hzyisartp.com/'
+const domain = 'http://localhost:4000/' || 'https://www.hzyisartp.com/'
 
 module.exports = {
   formatTime,
