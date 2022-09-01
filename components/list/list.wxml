@@ -1,0 +1,4 @@
+<!--components/list.wxml-->
+<view>
+  <list-item wx:for="listData" wx:key="id" wx:for-item="item" item="{{item}}"></list-item>
+</view>

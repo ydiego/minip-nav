@@ -1,0 +1,71 @@
+<view style="text-align: center" wx:if="{{pageLoading}}">
+  <t-loading theme="circular" size="40rpx" loading t-class-indicator="t-class-indicator">
+    <span slot="text" class="loading-text">加载中...</span>
+  </t-loading>
+</view>
+<view class="home-page-header">
+  <view class="swiper-wrap">
+    <!-- <t-swiper wx:if="{{imgSrcs.length > 0}}" current="{{current}}" autoplay="{{autoplay}}" duration="{{duration}}" interval="{{interval}}" navigation="{{navigation}}">
+      <t-swiper-item wx:for="{{imgSrcs}}" wx:key="index">
+        <td-image src="{{domain}}uploads/{{item.url}}" mode="aspectFit" t-class="t-image__swiper" bind:tap="navToAdvLink" />
+      </t-swiper-item>
+    </t-swiper> -->
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="height: 1012rpx;">
+      <block wx:for="{{imgSrcs}}" wx:key="*this">
+        <swiper-item class="swiper-item-wrap">
+          <image src="{{domain}}uploads/{{item.url}}" mode="heightFix" class="t-image__swiper" bindtap="swiperImageClick" data-jump-type="{{item.jumpType}}" data-app-id="{{item.appId}}" data-topic-id="{{item.topicId}}" data-hall-id="{{item.hallId}}">
+          </image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>
+<view class="entries">
+  <navigator url="/pages/concat/concat" hover-class="navigator-hover">
+    <view class="entry-item">
+      <view class="entry-icon">
+        <image src="../../images/online.png"></image>
+      </view>
+      <text>网拍</text>
+    </view>
+  </navigator>
+  <navigator url="/pages/concat/concat" hover-class="navigator-hover">
+    <view class="entry-item">
+      <view class="entry-icon">
+        <image src="../../images/offline.png"></image>
+      </view>
+      <text>线下拍</text>
+    </view>
+  </navigator>
+  <navigator url="/pages/concat/concat" hover-class="navigator-hover">
+    <view class="entry-item">
+      <view class="entry-icon">
+        <image src="../../images/联系我们.png"></image>
+      </view>
+      <text>联系我们</text>
+    </view>
+  </navigator>
+</view>
+<view class="home-page-container" wx:if="{{!pageLoading}}">
+  <view class="list-container" style="padding-bottom: 48rpx; padding-top: 24rpx;">
+    <block wx:for="{{list}}" wx:key="id">
+      <view class="list-item" bindtap="clickToOtherMini" data-app-id="{{item.appId}}">
+        <image src="{{domain}}uploads/{{item.logo}}" mode="aspectFill" shape>
+        </image>
+        <view class="detail">
+          <view class="body">
+            <text class="name">{{item.name}}</text>
+            <text class="desc">{{item.desc}}</text>
+          </view>
+          <view class="header" wx:for="{{item.list}}" wx:for-item="listItem">
+            <view class="time">{{listItem.startAt}} - {{listItem.endAt}}</view>
+            <view class="status {{listItem.status === '拍卖中' ? 'ongoing' : 'coming'}}">{{listItem.status}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <view style="text-align: center; color: #a4a4a4;">没有更多数据了</view>
+  </view>
+
+  <t-toast id="t-toast" />
+</view>

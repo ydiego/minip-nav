@@ -1,0 +1,2 @@
+<!--components/list-item/index.wxml-->
+<text>{{item.name}}</text>

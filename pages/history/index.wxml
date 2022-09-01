@@ -1,0 +1,21 @@
+<view class="history-container">
+  <view class="list-container" style="padding-bottom: 48rpx; padding-top: 24rpx;">
+    <block wx:for="{{list}}" wx:key="id">
+      <view class="list-item" bindtap="clickToOtherMini" data-app="{{item.appId}}">
+        <image src="{{domain}}uploads/{{item.logo}}" mode="aspectFill" shape>
+        </image>
+        <view class="detail">
+          <view class="body">
+            <text class="name">{{item.name}}</text>
+            <text class="desc">{{item.desc}}</text>
+          </view>
+          <view class="header">
+            <view class="time">{{item.startAt}} - {{item.endAt}}</view>
+            <view class="status end">已结束</view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <view style="text-align: center; color: #a4a4a4;">没有更多数据了</view>
+  </view>
+</view>
