@@ -127,7 +127,27 @@ const phoneRegCheck = (phone) => {
   return phoneRegExp.test(phone);
 };
 
-const domain = 'http://localhost:4000/' || 'https://www.hzyisartp.com/'
+const domain = 'https://www.hzyisartp.com/'
+
+const h5Domain = 'https://h5.hzyisartp.com/'
+
+const jumpUtil = (event) => {
+  const {
+    appId,
+    articleId,
+    jumpType
+  } = event.currentTarget.dataset;
+  if (jumpType === 'mini') {
+    wx.navigateToMiniProgram({
+      appId
+    })
+  }
+  if (jumpType === 'article') {
+    wx.navigateTo({
+      url: `/pages/webview/webview?path=${h5Domain}article/${articleId}`,
+    })
+  }
+}
 
 module.exports = {
   formatTime,
@@ -137,5 +157,6 @@ module.exports = {
   rpx2px,
   phoneEncryption,
   phoneRegCheck,
-  domain
+  domain,
+  jumpUtil
 };

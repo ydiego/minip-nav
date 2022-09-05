@@ -1,2 +1,8 @@
-<!--pages/concat/concat.wxml-->
-<text>pages/concat/concat.wxml</text>
+<view class="concat">
+  <text>官方</text>
+  <view>浙江成鑫文化创意有限公司</view>
+  <view>地址：杭州市上城区富亿中心B楼</view>
+  <view>联系电话：13735894681（郭）</view>
+  <view>商务洽谈：18658850499</view>
+  <view class="from">互动艺拍</view>
+</view>

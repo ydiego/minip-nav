@@ -1,6 +1,7 @@
 import dayjs from 'dayjs'
 import {
-  domain
+  domain,
+  jumpUtil
 } from '../../utils/util'
 Component({
   /**
@@ -38,24 +39,15 @@ Component({
       let sortRes = [];
       data.forEach(item => {
         const {
-          appId,
-          logo,
-          id,
           sort,
-          name,
+          desc,
           startAt,
           endAt,
-          desc,
         } = item;
         const mapItem = map[item.platformId]
         if (!mapItem) {
           map[item.platformId] = {
-            appId,
-            logo,
-            id,
-            sort,
-            name,
-            desc,
+            ...item,
             list: [{
               startAt,
               endAt
@@ -78,7 +70,6 @@ Component({
           list: this.sortData(item.list)
         }
       });
-      console.log(sortRes, 666)
       return sortRes;
     },
 
@@ -105,10 +96,8 @@ Component({
       return result;
     },
 
-    clickToOtherMini(e) {
-      wx.navigateToMiniProgram({
-        appId: e.currentTarget.dataset.appId
-      })
+    itemClick(e) {
+      jumpUtil(e)
     },
   }
 })

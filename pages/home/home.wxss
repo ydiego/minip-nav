@@ -41,6 +41,7 @@ page {
   justify-content: space-between;
   padding: 24rpx 48rpx;
   background: #fff;
+  margin-top: 24rpx;
 }
 
 .entry-item {

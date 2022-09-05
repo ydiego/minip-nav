@@ -1,6 +1,7 @@
 import dayjs from 'dayjs'
 import {
-  domain
+  domain,
+  jumpUtil
 } from '../../utils/util'
 
 Page({
@@ -66,11 +67,7 @@ Page({
   },
 
   swiperImageClick(event) {
-    console.log(event);
-    const jumpType = event.currentTarget.dataset.jumpType;
-    if (jumpType === 'mini') {
-      this.clickToOtherMini(event)
-    }
+    jumpUtil(event)
   },
 
   sortByPlatform(data) {

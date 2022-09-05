@@ -1,0 +1,7 @@
+<!--pages/articles/index.wxml-->
+<view class="container">
+  <view class="article-item " wx:for="{{list}}" wx:key="id" data-article-id="{{item.id}}" bindtap="toDetail" data-jump-type="article">
+    <image src="{{domain}}uploads/{{item.thumb}}" mode="scaleToFill" shape></image>
+  </view>
+  <view style="text-align: center; color: #a4a4a4;">没有更多数据了</view>
+</view>

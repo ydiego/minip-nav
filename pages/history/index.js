@@ -1,6 +1,7 @@
 import dayjs from 'dayjs'
 import {
-  domain
+  domain,
+  jumpUtil
 } from '../../utils/util';
 
 Page({
@@ -56,10 +57,8 @@ Page({
       }
     })
   },
-  clickToOtherMini(e) {
-    wx.navigateToMiniProgram({
-      appId: e.currentTarget.dataset.app
-    })
+  jump(e) {
+    jumpUtil(e)
   },
 
   onShareAppMessage() {

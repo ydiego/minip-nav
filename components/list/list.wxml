@@ -1,7 +1,7 @@
 <!--components/list.wxml-->
 <view class="list-container">
   <block wx:for="{{listData}}" wx:key="id">
-    <view class="list-item" bindtap="clickToOtherMini" data-app-id="{{item.appId}}">
+    <view class="list-item" bindtap="itemClick" data-app-id="{{item.appId}}" data-article-id="{{item.articleId}}" data-jump-type="{{item.jumpType}}">
       <image src="{{domain}}uploads/{{item.logo}}" mode="aspectFill" shape>
       </image>
       <view class="detail">

@@ -1,5 +1,6 @@
 import {
-  domain
+  domain,
+  jumpUtil
 } from '../../utils/util'
 Page({
 
@@ -56,12 +57,15 @@ Page({
     wx.request({
       url: `${this.data.domain}api/info/today?category=${this.data.options.category}&secondCategory=${secondCategory}`,
       success(res) {
-        console.log(res, 989)
         _.setData({
           [secondCategory === 1 ? 'countryList' : 'internationalList']: res.data.data,
         })
       },
     })
+  },
+
+  swiperImageClick(e) {
+    jumpUtil(e);
   },
 
   /**

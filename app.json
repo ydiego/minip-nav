@@ -3,7 +3,9 @@
     "pages/home/home",
     "pages/history/index",
     "pages/concat/concat",
-    "pages/cate/index"
+    "pages/cate/index",
+    "pages/webview/webview",
+    "pages/articles/index"
   ],
   "tabBar": {
     "custom": true,
@@ -15,6 +17,10 @@
       {
         "pagePath": "pages/home/home",
         "text": "首页"
+      },
+      {
+        "pagePath": "pages/articles/index",
+        "text": "展厅"
       },
       {
         "pagePath": "pages/history/index",

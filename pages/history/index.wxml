@@ -1,7 +1,7 @@
 <view class="history-container">
   <view class="list-container" style="padding-bottom: 48rpx; padding-top: 24rpx;">
     <block wx:for="{{list}}" wx:key="id">
-      <view class="list-item" bindtap="clickToOtherMini" data-app="{{item.appId}}">
+      <view class="list-item" bindtap="jump" data-jump-type="{{item.jumpType}}" data-app-id="{{item.appId}}" data-article-id="{{item.article}}">
         <image src="{{domain}}uploads/{{item.logo}}" mode="aspectFill" shape>
         </image>
         <view class="detail">
