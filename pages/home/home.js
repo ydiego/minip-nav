@@ -145,15 +145,17 @@ Page({
 
   onShareAppMessage() {
     return {
-      title: '自定义转发标题',
-      path: 'pages/home/home'
+      title: '互动艺拍',
+      path: 'pages/home/home',
+      imageUrl: '../../images/share.jpg'
     }
   },
 
   onShareTimeline() {
     return {
-      title: '自定义转发标题',
-      path: 'pages/home/home'
+      title: '互动艺拍',
+      path: 'pages/home/home',
+      imageUrl: '../../images/share.jpg'
     }
   }
 });

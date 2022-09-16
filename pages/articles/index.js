@@ -37,7 +37,7 @@ Page({
   getList(page = 1) {
     const _ = this;
     wx.request({
-      url: `${this.data.domain}api/article/list`,
+      url: `${this.data.domain}api/article/list?type=1`,
       data: {
         page,
         pageSize: 10,
@@ -77,10 +77,19 @@ Page({
     this.getList(this.data.page);
   },
 
-  /**
-   * 用户点击右上角分享
-   */
   onShareAppMessage() {
+    return {
+      title: '互动艺拍',
+      path: 'pages/home/home',
+      imageUrl: '../../images/share.jpg'
+    }
+  },
 
+  onShareTimeline() {
+    return {
+      title: '互动艺拍',
+      imageUrl: '../../images/share.jpg',
+      path: 'pages/home/home'
+    }
   }
 })

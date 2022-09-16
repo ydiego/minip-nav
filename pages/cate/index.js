@@ -68,10 +68,19 @@ Page({
     jumpUtil(e);
   },
 
-  /**
-   * 用户点击右上角分享
-   */
   onShareAppMessage() {
+    return {
+      title: '互动艺拍',
+      path: 'pages/home/home',
+      imageUrl: '../../images/share.jpg'
+    }
+  },
 
+  onShareTimeline() {
+    return {
+      title: '互动艺拍',
+      imageUrl: '../../images/share.jpg',
+      path: 'pages/home/home'
+    }
   }
 })
