@@ -38,7 +38,6 @@ Page({
         pageSize: 10,
       },
       success(res) {
-        console.log(res, 8989)
         const _list = [..._.data.list];
         const data = res.data.data;
         const result = data.data.map(item => {
@@ -46,7 +45,6 @@ Page({
           item.endAt = dayjs(item.endAt).format('MM-DD HH:mm')
           return item;
         })
-        console.log(data.data);
         _.setData({
           list: page === 1 ? [...result] : [..._list, ...result],
           total: data.total,
@@ -61,18 +59,24 @@ Page({
     jumpUtil(e)
   },
 
+  getShareImage() {
+    return getApp().global.shareImage || '../../images/share.jpg';
+  },
+
   onShareAppMessage() {
+    const imageUrl = this.getShareImage();
     return {
       title: '互动艺拍',
       path: 'pages/home/home',
-      imageUrl: '../../images/share.jpg'
+      imageUrl
     }
   },
 
   onShareTimeline() {
+    const imageUrl = this.getShareImage();
     return {
       title: '互动艺拍',
-      imageUrl: '../../images/share.jpg',
+      imageUrl,
       path: 'pages/home/home'
     }
   }

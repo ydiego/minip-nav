@@ -77,19 +77,25 @@ Page({
     this.getList(this.data.page);
   },
 
+  getShareImage() {
+    return getApp().global.shareImage || '../../images/share.jpg';
+  },
+
   onShareAppMessage() {
+    const imageUrl = this.getShareImage();
     return {
       title: '互动艺拍',
       path: 'pages/home/home',
-      imageUrl: '../../images/share.jpg'
+      imageUrl
     }
   },
 
   onShareTimeline() {
+    const imageUrl = this.getShareImage();
     return {
       title: '互动艺拍',
-      imageUrl: '../../images/share.jpg',
-      path: 'pages/home/home'
+      path: 'pages/home/home',
+      imageUrl
     }
   }
 })

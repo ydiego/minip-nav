@@ -5,7 +5,7 @@
 </view>
 <view class="home-page-header">
   <view class="swiper-wrap">
-    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="height: 1012rpx;">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="height: 780rpx;">
       <block wx:for="{{imgSrcs}}" wx:key="*this">
         <swiper-item class="swiper-item-wrap">
           <image src="{{domain}}uploads/{{item.url}}" mode="heightFix" class="t-image__swiper" bindtap="swiperImageClick" data-jump-type="{{item.jumpType}}" data-app-id="{{item.appId}}" data-article-id="{{item.articleId}}">

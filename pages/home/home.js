@@ -8,7 +8,6 @@ Page({
   data: {
     imgSrcs: [],
     pageLoading: true,
-    current: 1,
     indicatorDots: true,
     vertical: false,
     interval: 2000,
@@ -143,19 +142,26 @@ Page({
 
   onReTry() {},
 
+  getShareImage() {
+    console.log(getApp().global.shareImage, 333)
+    return getApp().global.shareImage || '../../images/share.jpg';
+  },
+
   onShareAppMessage() {
+    const imageUrl = this.getShareImage();
     return {
       title: '互动艺拍',
       path: 'pages/home/home',
-      imageUrl: '../../images/share.jpg'
+      imageUrl
     }
   },
 
   onShareTimeline() {
+    const imageUrl = this.getShareImage();
     return {
       title: '互动艺拍',
       path: 'pages/home/home',
-      imageUrl: '../../images/share.jpg'
+      imageUrl
     }
   }
 });
