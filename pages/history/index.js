@@ -66,7 +66,7 @@ Page({
   onShareAppMessage() {
     const imageUrl = this.getShareImage();
     return {
-      title: '互动艺拍',
+      title: '互动云展',
       path: 'pages/home/home',
       imageUrl
     }
@@ -75,7 +75,7 @@ Page({
   onShareTimeline() {
     const imageUrl = this.getShareImage();
     return {
-      title: '互动艺拍',
+      title: '互动云展',
       imageUrl,
       path: 'pages/home/home'
     }

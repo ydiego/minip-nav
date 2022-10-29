@@ -10,8 +10,9 @@ Page({
     pageLoading: true,
     indicatorDots: true,
     vertical: false,
-    interval: 2000,
-    duration: 500,
+    interval: 3000,
+    duration: 1000,
+    autoplay: true,
     navigation: {
       type: 'dots'
     },
@@ -69,77 +70,6 @@ Page({
     jumpUtil(event)
   },
 
-  sortByPlatform(data) {
-    const map = {};
-    let sortRes = [];
-    data.forEach(item => {
-      const {
-        appId,
-        logo,
-        id,
-        sort,
-        name,
-        startAt,
-        endAt,
-        desc,
-      } = item;
-      const mapItem = map[item.platformId]
-      if (!mapItem) {
-        map[item.platformId] = {
-          appId,
-          logo,
-          id,
-          sort,
-          name,
-          desc,
-          list: [{
-            startAt,
-            endAt
-          }]
-        }
-      } else {
-        if (desc) {
-          mapItem.desc = desc;
-        }
-        mapItem.list.push({
-          startAt,
-          endAt
-        });
-        mapItem.sort = mapItem.sort + sort;
-      }
-    });
-    sortRes = Object.values(map).sort((a, b) => b.sort - a.sort).map(item => {
-      return {
-        ...item,
-        list: this.sortData(item.list)
-      }
-    });
-    return sortRes;
-  },
-
-  sortData(data) {
-    // this.sortByPlatform(data);
-    const now = +new Date();
-    const ongoing = data.filter(item => {
-      return +new Date(item.startAt) < now && +new Date(item.endAt) > now
-    }).sort((a, b) => b.sort - a.sort);
-    const coming = data.filter(item => {
-      return +new Date(item.startAt) > now;
-    }).sort((a, b) => b.sort - a.sort);
-    const result = [...ongoing, ...coming].map(item => {
-      if (+new Date(item.startAt) < now) {
-        item.status = '拍卖中'
-      } else {
-        item.status = '预展中'
-      }
-      item.startAt = dayjs(item.startAt).format('MM.DD HH:mm')
-      item.endAt = dayjs(item.endAt).format('MM.DD HH:mm')
-
-      return item;
-    })
-    return result;
-  },
-
   onReTry() {},
 
   getShareImage() {
@@ -150,7 +80,7 @@ Page({
   onShareAppMessage() {
     const imageUrl = this.getShareImage();
     return {
-      title: '互动艺拍',
+      title: '互动云展',
       path: 'pages/home/home',
       imageUrl
     }
@@ -159,7 +89,7 @@ Page({
   onShareTimeline() {
     const imageUrl = this.getShareImage();
     return {
-      title: '互动艺拍',
+      title: '互动云展',
       path: 'pages/home/home',
       imageUrl
     }
