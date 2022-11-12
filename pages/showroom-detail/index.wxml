@@ -1,22 +1,15 @@
 <view class="showroom-detail" wx:if="{{!loading}}">
 
-  <view class="thumb" wx:if="{{info.status !== 'done'}}">
+  <view class="thumb" wx:if="{{info.status !== 'done'}}" bindtap="toShowroom">
     <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
       <t-image src="{{domain}}uploads/{{info.thumb}}" mode="widthFix" show-menu-by-longpress='1'></t-image>
     </button> -->
-    <t-image src="{{domain}}uploads/{{info.thumb}}" mode="widthFix" show-menu-by-longpress='1' bindtap="toShowroom"></t-image>
+    <t-image src="{{domain}}uploads/{{info.thumb}}" mode="widthFix"></t-image>
+    <view class="enter">进入浏览</view>
   </view>
   <view class="video">
     <video src="{{domain}}uploads/{{info.video}}" style="width: 100%;"></video>
   </view>
-  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="height: 580rpx;">
-    <block wx:for="{{pages}}" wx:key="*this">
-      <swiper-item class="swiper-item-wrap">
-        <image src="{{domain}}uploads/{{item}}" mode="heightFix" class="t-image__swiper">
-        </image>
-      </swiper-item>
-    </block>
-  </swiper>
 
   <view class="pages">
     <image class="page {{currentPage === index ? 'active' : ''}} {{index < currentPage ? 'done' : '' }}" src="{{domain}}uploads/{{item}}" wx:for-inde="index" wx:for="{{pages}}" wx:key="*this" style="z-index: {{pages.length - index}};" bindtap="handlePageClick" data-index="{{index}}"></image>
@@ -24,6 +17,24 @@
 
   <view class="bottom-content">
     <view class="desc">{{info.statusText}} | {{info.startAt}} - {{info.endAt}} 北京时间</view>
+    <navigator url="/pages/concat/concat">
+      <view class="concat">联系我们</view>
+    </navigator>
   </view>
-  <t-dialog id="t-dialog" />
+
+  <view class="comments">
+    <text class="none" wx:if="{{comments.length === 0}}"> 暂无评论</text>
+    <block wx:else>
+      <viwe class="total">共{{comments.length}}条评论</viwe>
+      <view class="comment" wx:for="{{comments}}">
+        <image class="avatar" src="{{item.avatar || '../../images/avatar.jpg'}}"></image>
+        <view class="body">
+          <view class="nickname">{{item.account.nickName}}</view>
+          <view class="content">{{item.content}} <text class="time">{{item.createAt}}</text></view>
+        </view>
+      </view>
+
+      <t-input value="{{commentContent}}" placeholder="喜欢就给个评论支持一下~" bindchange="handleCommentChange" bindenter="submitComment" />
+    </block>
+  </view>
 </view>

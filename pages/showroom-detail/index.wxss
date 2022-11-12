@@ -1,13 +1,42 @@
 .thumb {
   width: 100%;
+  position: relative;
+}
+
+.thumb .enter {
+  color: #fff;
+  background-color: #54b0a5;
+  padding: 18rpx 36rpx;
+  display: inline-block;
+  position: absolute;
+  bottom: 20rpx;
+  left: 50%;
+  transform: translate(-50%);
+  border-radius: 12rpx;
 }
 
 .bottom-content {
   padding: 0 36rpx;
+  text-align: center;
 }
 
 .desc {
   font-size: 28rpx;
+  text-align: left;
+  font-weight: bold;
+  margin-top: 12rpx;
+}
+
+.concat {
+  color: #fff;
+  background-color: #0a223a;
+  display: inline-block;
+  margin: 0 auto;
+  padding: 24rpx 0;
+  text-align: center;
+  width: 400rpx;
+  border-radius: 12rpx;
+  margin: 48rpx 0;
 }
 
 .pages {
@@ -60,4 +89,47 @@
 .page.done {
   transform: rotateY(-140deg);
   z-index: -1;
+}
+
+
+.comments {
+  padding: 0 24rpx;
+}
+
+.comment {
+  display: flex;
+  padding: 24rpx;
+}
+
+.total {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  display: block;
+  padding: 24rpx 0;
+  font-size: 32rpx;
+}
+
+.comment .body {
+  flex: 1;
+  margin-left: 24rpx;
+  display: flex;
+  flex-direction: column;
+  padding-top: 12rpx;
+  font-size: 32rpx;
+}
+
+.comment .avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.comment .nickname,
+.comment .time {
+  color: rgba(0, 0, 0, 0.4)
+}
+
+.comment .content {
+  margin-top: 12rpx;
+  padding-bottom: 24rpx;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
