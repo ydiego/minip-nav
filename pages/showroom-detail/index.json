@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "互动云展",
+  "usingComponents": {
+    "t-image": "tdesign-miniprogram/image/image",
+    "t-dialog": "tdesign-miniprogram/dialog/dialog"
+  }
+}

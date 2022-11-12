@@ -1,0 +1,40 @@
+.title {
+  font-size: 48rpx;
+  text-align: center;
+  margin: 72rpx 0;
+}
+
+.error-msg {
+  text-align: right !important;
+}
+
+.verify {
+  color: rgba(0, 82, 217, 1);
+  font-size: 32rpx;
+}
+
+.verify.disabled {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.read-check .t-radio__border {
+  border: none;
+}
+
+.read-check .black {
+  color: #000;
+  text-decoration: dashed;
+}
+
+.read-check .t-icon-base {
+  color: #e34d59 !important;
+}
+
+.button-wrap {
+  margin: 32rpx 24rpx;
+}
+
+/* .external-class {
+  background-color: #bf000a !important;
+  border: 1px solid #bf000a !important;
+} */

@@ -7,7 +7,7 @@ export default [{
   {
     icon: 'image',
     text: '展厅',
-    url: 'pages/articles/index',
+    url: 'pages/showroom/showroom',
     // prefix: false,
   },
   {

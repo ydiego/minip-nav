@@ -1,0 +1,63 @@
+.thumb {
+  width: 100%;
+}
+
+.bottom-content {
+  padding: 0 36rpx;
+}
+
+.desc {
+  font-size: 28rpx;
+}
+
+.pages {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background-color: rgba(255, 255, 255, 0.774);
+  transform-style: preserve-3d;
+  transition: 1s cubic-bezier(.79, .34, .47, .92);
+}
+
+/* .pages::after {
+  content: '';
+  position: absolute;
+  height: 3px;
+  width: 303px;
+  left: 0px;
+  bottom: -3px;
+  background-image: linear-gradient(to right, rgb(71, 68, 68), rgba(124, 120, 120, 0.3));
+  border-bottom-left-radius: 5px;
+}
+
+.pages::before {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 100%;
+  right: -3px;
+  top: 0px;
+  background-color: rgb(112, 108, 108);
+  background-image: linear-gradient(to top, rgb(114, 111, 111), rgba(90, 87, 87, 0.5));
+  border-top-right-radius: 3px;
+} */
+
+.page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: 100%;
+  transform-origin: left;
+  transition: 1s cubic-bezier(.79, .34, .47, .92);
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.page.active {
+  transform: rotateY(-140deg);
+}
+
+.page.done {
+  transform: rotateY(-140deg);
+  z-index: -1;
+}

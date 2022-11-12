@@ -5,7 +5,10 @@
     "pages/concat/concat",
     "pages/cate/index",
     "pages/webview/webview",
-    "pages/articles/index"
+    "pages/articles/index",
+    "pages/showroom/showroom",
+    "pages/showroom-detail/index",
+    "pages/register/index"
   ],
   "tabBar": {
     "custom": true,
@@ -19,7 +22,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/articles/index",
+        "pagePath": "pages/showroom/showroom",
         "text": "展厅"
       },
       {

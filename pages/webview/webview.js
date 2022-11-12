@@ -13,7 +13,7 @@ Page({
    */
   onLoad(options) {
     this.setData({
-      path: options.path || ''
+      path: decodeURIComponent(options.path) || ''
     })
   },
 

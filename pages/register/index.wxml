@@ -1,0 +1,21 @@
+<view class="container">
+  <view class="title">验证码登录</view>
+  <t-input placeholder="请输入手机号码" value="{{phoneNumber}}" type="number" error-message="{{phoneError ? '手机号输入不正确' : ''}}" bindchange="onPhoneInput" label="+86">
+  </t-input>
+
+  <t-input placeholder="请输入验证码" label="验证码" value="{{verifyCode}}" bindchange="onVerifyCodeChange" maxlength="{{4}}">
+    <view slot="suffix" class="verify {{isInCountdown ? 'disabled' : ''}}" bindtap="sendSMS"> {{verifyText}} </view>
+  </t-input>
+
+
+  <view class="button-wrap">
+    <view class="read-check">
+      <t-radio checked="{{checked}}" bind:change="handleCheckChange" borderless>
+        <text>我已阅读并同意</text>
+        <text class="black">《用户注册协议》</text>
+        <text class="black">《隐私政策》</text>
+      </t-radio>
+    </view>
+    <t-button t-class="external-class" theme="danger" block disabled="{{!isPhoneNumber || !checked}}" bindtap="onLogin">登录</t-button>
+  </view>
+</view>

@@ -28,25 +28,6 @@ function priceFormat(price, fill = 0) {
   return priceFormatValue;
 }
 
-/**
- * 获取cdn裁剪后链接
- *
- * @param {string} url 基础链接
- * @param {number} width 宽度，单位px
- * @param {number} [height] 可选，高度，不填时与width同值
- */
-const cosThumb = (url, width, height = width) => {
-  if (url.indexOf('?') > -1) {
-    return url;
-  }
-
-  if (url.indexOf('http://') === 0) {
-    url = url.replace('http://', 'https://');
-  }
-
-  return `${url}?imageMogr2/thumbnail/${~~width}x${~~height}`;
-};
-
 const get = (source, paths, defaultValue) => {
   if (typeof paths === 'string') {
     paths = paths
@@ -127,7 +108,8 @@ const phoneRegCheck = (phone) => {
   return phoneRegExp.test(phone);
 };
 
-const domain = 'https://www.hzyisartp.com/'
+// const domain = 'https://www.hzyisartp.com/'
+const domain = 'http://localhost:4000/';
 
 const h5Domain = 'https://h5.hzyisartp.com/'
 
@@ -137,7 +119,7 @@ const jumpUtil = (event) => {
     articleId,
     jumpType
   } = event.currentTarget.dataset;
-  if (jumpType === 'mini') {
+  if (jumpType === 'mini' && appId) {
     wx.navigateToMiniProgram({
       appId
     })
@@ -152,7 +134,6 @@ const jumpUtil = (event) => {
 module.exports = {
   formatTime,
   priceFormat,
-  cosThumb,
   get,
   rpx2px,
   phoneEncryption,

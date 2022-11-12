@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "互动云展",
+  "usingComponents": {
+    "t-input": "tdesign-miniprogram/input/input",
+    "t-radio": "tdesign-miniprogram/radio/radio",
+    "t-button": "tdesign-miniprogram/button/button"
+  }
+}
