@@ -108,8 +108,8 @@ const phoneRegCheck = (phone) => {
   return phoneRegExp.test(phone);
 };
 
-// const domain = 'https://www.hzyisartp.com/'
-const domain = 'http://localhost:4000/';
+const domain = 'https://www.hzyisartp.com/'
+// const domain = 'http://localhost:4000/';
 
 const h5Domain = 'https://h5.hzyisartp.com/'
 
