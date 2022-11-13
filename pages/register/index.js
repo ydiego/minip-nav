@@ -34,7 +34,7 @@ Page({
       url: `${this.data.domain}api/sendSMS`,
       method: "POST",
       data: {
-        phone: '15757185259'
+        phone: that.data.phoneNumber
       },
       success(res) {
         if (res.data.code === '0000') {

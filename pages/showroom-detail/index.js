@@ -87,9 +87,13 @@ Page({
 
         } else {
           wx.showToast({
-            title: res.data.msg,
+            title: '哎呀,出错了',
+            icon: 'none'
           })
         }
+      },
+      fail(e) {
+        console.log(e, 8888);
       }
     })
   },
@@ -157,7 +161,7 @@ Page({
             loading: false
           })
         wx.hideLoading()
-        _.getBookInfo(res.data.data.bookId)
+        res.data.data.bookId && _.getBookInfo(res.data.data.bookId)
       }
     })
   },

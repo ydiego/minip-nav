@@ -15,6 +15,23 @@
   border-radius: 12rpx;
 }
 
+.swiper {
+  height: 0;
+}
+
+.image-swiper {
+  width: 100%;
+  display: block;
+  transform: scale(0.8);
+  transition: all 0.3s ease;
+  border-radius: 6px;
+}
+
+.image-swiper.active {
+  transform: scale(1);
+}
+
+
 .bottom-content {
   padding: 0 36rpx;
   text-align: center;
@@ -46,6 +63,8 @@
   background-color: rgba(255, 255, 255, 0.774);
   transform-style: preserve-3d;
   transition: 1s cubic-bezier(.79, .34, .47, .92);
+  padding: 0 24rpx;
+  box-sizing: border-box;
 }
 
 /* .pages::after {
@@ -73,17 +92,33 @@
 
 .page {
   position: absolute;
-  width: 100%;
+  width: 90%;
   height: 100%;
   background-size: 100%;
   transform-origin: left;
   transition: 1s cubic-bezier(.79, .34, .47, .92);
   border-top-left-radius: 2px;
   border-bottom-left-radius: 2px;
+  box-shadow: 15rpx 2rpx 32rpx 0rpx rgb(140, 143, 140, 0.5);
+  left: 90rpx;
+  scale: 0.95;
+  border-radius: 24rpx;
 }
+
+.page:first-child {
+  left: 24rpx;
+  scale: 1
+}
+
+.page:nth-child(2) {
+  left: 65rpx;
+  scale: 0.97;
+}
+
 
 .page.active {
   transform: rotateY(-140deg);
+  scale: 1;
 }
 
 .page.done {
