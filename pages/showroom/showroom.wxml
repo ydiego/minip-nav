@@ -7,16 +7,16 @@
         <view class="image-wrap">
           <t-image src="{{domain}}uploads/{{item.thumb}}" mode="widthFix"></t-image>
         </view>
+        <view class="item-body">
+          <view class="item-header">
+            <view class="name">{{item.title}}</view>
+            <view class="status {{item.status}}">{{item.statusText}}</view>
+          </view>
+          <view class="time">
+            {{item.startAt}} - {{item.endAt}} 北京时间
+          </view>
+        </view>
       </navigator>
-      <view class="item-body">
-        <view class="item-header">
-          <view class="name">{{item.title}}</view>
-          <view class="status {{item.status}}">{{item.statusText}}</view>
-        </view>
-        <view class="time">
-          {{item.startAt}} - {{item.endAt}} 北京时间
-        </view>
-      </view>
     </view>
     <view style="text-align: center; color: #a4a4a4; margin-bottom: 48rpx;">没有更多数据了</view>
   </view>

@@ -33,8 +33,9 @@
           <view class="content">{{item.content}} <text class="time">{{item.createAt}}</text></view>
         </view>
       </view>
-
-      <t-input value="{{commentContent}}" placeholder="喜欢就给个评论支持一下~" bindchange="handleCommentChange" bindenter="submitComment" />
+      <t-input value="{{commentContent}}" placeholder="喜欢就给个评论支持一下~" bindchange="handleCommentChange">
+        <view slot="suffix" class="send" bindtap="submitComment"> 发布 </view>
+      </t-input>
     </block>
   </view>
 </view>

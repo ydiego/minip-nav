@@ -1,3 +1,8 @@
+.showroom-detail {
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
 .thumb {
   width: 100%;
   position: relative;
@@ -14,23 +19,6 @@
   transform: translate(-50%);
   border-radius: 12rpx;
 }
-
-.swiper {
-  height: 0;
-}
-
-.image-swiper {
-  width: 100%;
-  display: block;
-  transform: scale(0.8);
-  transition: all 0.3s ease;
-  border-radius: 6px;
-}
-
-.image-swiper.active {
-  transform: scale(1);
-}
-
 
 .bottom-content {
   padding: 0 36rpx;
@@ -59,70 +47,60 @@
 .pages {
   position: relative;
   width: 100%;
-  height: 400px;
+  height: 448px;
   background-color: rgba(255, 255, 255, 0.774);
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
   transition: 1s cubic-bezier(.79, .34, .47, .92);
+  -webkit-transition: 1s cubic-bezier(.79, .34, .47, .92);
   padding: 0 24rpx;
   box-sizing: border-box;
 }
 
-/* .pages::after {
-  content: '';
-  position: absolute;
-  height: 3px;
-  width: 303px;
-  left: 0px;
-  bottom: -3px;
-  background-image: linear-gradient(to right, rgb(71, 68, 68), rgba(124, 120, 120, 0.3));
-  border-bottom-left-radius: 5px;
-}
-
-.pages::before {
-  content: '';
-  position: absolute;
-  width: 3px;
-  height: 100%;
-  right: -3px;
-  top: 0px;
-  background-color: rgb(112, 108, 108);
-  background-image: linear-gradient(to top, rgb(114, 111, 111), rgba(90, 87, 87, 0.5));
-  border-top-right-radius: 3px;
-} */
-
 .page {
   position: absolute;
-  width: 90%;
+  width: 93.46666%;
   height: 100%;
   background-size: 100%;
   transform-origin: left;
+  -webkit-transform-origin: left;
   transition: 1s cubic-bezier(.79, .34, .47, .92);
   border-top-left-radius: 2px;
   border-bottom-left-radius: 2px;
   box-shadow: 15rpx 2rpx 32rpx 0rpx rgb(140, 143, 140, 0.5);
-  left: 90rpx;
-  scale: 0.95;
+  /* left: 90rpx; */
+  /* scale: 0.94; */
   border-radius: 24rpx;
+  overflow: hidden
 }
 
 .page:first-child {
   left: 24rpx;
-  scale: 1
+  /* scale: 1 */
+  transform: rotateY(-15deg);
+  -webkit-transform: rotateY(-15deg);
 }
 
 .page:nth-child(2) {
-  left: 65rpx;
-  scale: 0.97;
+  transform: rotateY(-10deg);
+  -webkit-transform: rotateY(-10deg);
+  /* left: 56rpx; */
+  /* scale: 0.97; */
 }
 
 
 .page.active {
   transform: rotateY(-140deg);
-  scale: 1;
+  -webkit-transform: rotateY(-140deg);
+  will-change: transform;
+  /* scale: 0.95; */
 }
 
 .page.done {
   transform: rotateY(-140deg);
+  -webkit-transform: rotateY(-140deg);
+  will-change: transform;
+  /* scale: 0.95; */
   z-index: -1;
 }
 
@@ -167,4 +145,16 @@
   margin-top: 12rpx;
   padding-bottom: 24rpx;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.input-warp {
+  display: flex;
+}
+
+.input-warp input {
+  flex: 1
+}
+
+.input-warp t-button {
+  width: 40rpx;
 }

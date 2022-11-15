@@ -39,6 +39,7 @@ Page({
   },
 
   handleCommentChange(e) {
+    console.log(e)
     this.setData({
       commentContent: e.detail.value
     })
@@ -66,7 +67,7 @@ Page({
     }
     if (!_.data.commentContent) {
       return wx.showToast({
-        title: '评论内容不能位空~',
+        title: '评论内容不能为空~',
         icon: 'none'
       });
     }
