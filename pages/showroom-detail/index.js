@@ -38,6 +38,7 @@ Page({
 
   },
 
+
   handleCommentChange(e) {
     console.log(e)
     this.setData({

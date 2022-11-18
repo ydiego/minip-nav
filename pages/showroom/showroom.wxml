@@ -3,9 +3,9 @@
 
   <view class="showroom-list">
     <view class="showroom-item" wx:for="{{list}}" wx:for-item="item" wx:key="{{item.id}}">
-      <navigator url="/pages/showroom-detail/index?id={{item.id}}" hover-class="navigator-hover">
+      <navigator url="/pages/showroom-detail/index?id={{item.id}}" hover-class="navigator-none">
         <view class="image-wrap">
-          <t-image src="{{domain}}uploads/{{item.thumb}}" mode="widthFix"></t-image>
+          <image src="{{domain}}uploads/{{item.thumb}}" mode="aspectFill"></image>
         </view>
         <view class="item-body">
           <view class="item-header">
@@ -13,7 +13,8 @@
             <view class="status {{item.status}}">{{item.statusText}}</view>
           </view>
           <view class="time">
-            {{item.startAt}} - {{item.endAt}} 北京时间
+            <t-icon name="time" size="24rpx" style="margin-right: 4rpx;" />
+            {{item.startAt}} - {{item.endAt}}
           </view>
         </view>
       </navigator>

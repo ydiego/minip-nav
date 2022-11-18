@@ -16,7 +16,7 @@
   </view>
 
   <view class="bottom-content">
-    <view class="desc">{{info.statusText}} | {{info.startAt}} - {{info.endAt}} 北京时间</view>
+    <view class="desc">{{info.statusText}} | {{info.title}}</view>
     <navigator url="/pages/concat/concat">
       <view class="concat">联系我们</view>
     </navigator>

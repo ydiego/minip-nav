@@ -3,13 +3,13 @@
 }
 
 .showroom-list {
-  margin-top: 48rpx;
+  margin-top: 24rpx;
 }
 
 .showroom-item {
   border-radius: 24rpx;
   overflow: hidden;
-  margin-bottom: 48rpx;
+  margin-bottom: 24rpx;
 }
 
 .image-wrap {
@@ -18,20 +18,24 @@
   overflow: hidden;
 }
 
+.image-wrap image {
+  width: 100%;
+}
+
 .item-body {
-  padding: 24rpx;
+  padding: 12rpx 24rpx;
 }
 
 .item-header {
   display: flex;
   justify-content: space-between;
-  font-size: 40rpx;
+  font-size: 32rpx;
   align-items: center;
 }
 
 .item-header .status {
-  font-size: 28rpx;
-  padding: 8rpx;
+  font-size: 20rpx;
+  padding: 8rpx 9rpx;
   border-radius: 8rpx;
   color: #FFF;
 }
@@ -45,7 +49,10 @@
 }
 
 .item-body .time {
-  font-size: 22rpx;
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
   font-weight: bold;
   margin-top: 12rpx;
+  color: #5a5a5a;
 }

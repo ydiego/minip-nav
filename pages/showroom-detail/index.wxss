@@ -8,6 +8,12 @@
   position: relative;
 }
 
+.thumb image {
+  width: 100%;
+  min-height: 380px;
+  display: block;
+}
+
 .thumb .enter {
   color: #fff;
   background-color: #54b0a5;
@@ -21,7 +27,8 @@
 }
 
 .bottom-content {
-  padding: 0 36rpx;
+  padding: 140rpx 36rpx;
+  padding-bottom: 0;
   text-align: center;
 }
 
@@ -53,14 +60,14 @@
   -webkit-transform-style: preserve-3d;
   transition: 1s cubic-bezier(.79, .34, .47, .92);
   -webkit-transition: 1s cubic-bezier(.79, .34, .47, .92);
-  padding: 0 24rpx;
+  padding: 24rpx;
   box-sizing: border-box;
 }
 
 .page {
   position: absolute;
   width: 93.46666%;
-  height: 100%;
+  height: 996rpx;
   background-size: 100%;
   transform-origin: left;
   -webkit-transform-origin: left;
