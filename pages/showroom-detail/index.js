@@ -61,7 +61,7 @@ Page({
       })
       setTimeout(() => {
         wx.navigateTo({
-          url: '/pages/register/index',
+          url: '/pages/login-choose/index',
         })
       }, 1500);
       return;
@@ -193,7 +193,7 @@ Page({
       })
       setTimeout(() => {
         wx.navigateTo({
-          url: '/pages/register/index',
+          url: '/pages/login-choose/index',
         })
       }, 1500);
       return;

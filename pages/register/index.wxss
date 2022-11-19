@@ -34,7 +34,27 @@
   margin: 32rpx 24rpx;
 }
 
-/* .external-class {
-  background-color: #bf000a !important;
-  border: 1px solid #bf000a !important;
-} */
+.button-wrap .t-radio {
+  padding: 32rpx 0;
+}
+
+.wechat {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wechat button {
+  background: none;
+}
+
+.wechat button::after {
+  border: none;
+}
+
+.wechat image {
+  width: 80rpx;
+  height: 80rpx;
+}

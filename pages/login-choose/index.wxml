@@ -1,0 +1,24 @@
+<view class="container">
+  <view class="info">
+    <image src="../../images/logo.jpg"></image>
+    <text>互动艺拍</text>
+  </view>
+
+  <view class="button we">
+    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+      <image src="../../images/wechat2.png"></image>
+      <text>微信授权</text>
+    </button>
+  </view>
+  <view class="button reg">
+
+    <text>短信验证登录</text>
+  </view>
+  <view class="read-check">
+    <t-radio checked="{{checked}}" bind:change="handleCheckChange" borderless>
+      <text>我已阅读并同意</text>
+      <text class="black">《用户注册协议》</text>
+      <text class="black">《隐私政策》</text>
+    </t-radio>
+  </view>
+</view>

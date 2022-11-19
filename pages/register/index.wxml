@@ -18,4 +18,10 @@
     </view>
     <t-button t-class="external-class" theme="danger" block disabled="{{!isPhoneNumber || !checked}}" bindtap="onLogin">登录</t-button>
   </view>
+  <view class="wechat">
+    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+      <image src="../../images/WeChatIcon.png" />
+    </button>
+    <text>微信授权登录</text>
+  </view>
 </view>

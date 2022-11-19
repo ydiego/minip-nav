@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "t-radio": "tdesign-miniprogram/radio/radio"
+  }
+}

@@ -49,7 +49,7 @@ App({
           wx.setStorageSync('userInfo', res.data.data)
           if (!res.data.data) {
             wx.navigateTo({
-              url: '/pages/register/index',
+              url: '/pages/login-choose/index',
             })
 
           }

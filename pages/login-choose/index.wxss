@@ -1,0 +1,73 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.info {
+  margin-top: 30%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 48rpx;
+}
+
+.info image {
+  width: 120rpx;
+  height: 120rpx;
+  margin-bottom: 12rpx;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  width: 70%;
+  margin: 24rpx auto;
+  height: 100rpx;
+  border-radius: 50rpx;
+}
+
+.button.we,
+.button button {
+  background: #5cad37;
+}
+
+.button button {
+  display: flex;
+  color: #fff;
+  align-items: center;
+}
+
+.button button::after {
+  border: none;
+}
+
+.button.reg {
+  background: #264fe5;
+}
+
+.button image {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 12rpx;
+}
+
+.read-check {
+  font-size: 28rpx;
+  padding-top: 20rpx;
+}
+
+.read-check .t-icon-base {
+  color: #e34d59 !important;
+}
+
+.read-check .t-radio__border {
+  border: none;
+}
+
+.read-check .black {
+  color: #000;
+  text-decoration: dashed;
+}
