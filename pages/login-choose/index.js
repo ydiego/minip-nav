@@ -1,8 +1,11 @@
-// pages/login-choose/index.js
+import {
+  domain,
+} from '../../utils/util'
 Page({
 
   data: {
     checked: true,
+    domain
   },
 
   getPhoneNumber(e) {
@@ -21,7 +24,7 @@ Page({
   savePhone(code) {
     const that = this;
     wx.request({
-      url: 'http://localhost:4000/api/wxInfo',
+      url: `${this.data.domain}api/wxInfo`,
       method: 'POST',
       data: {
         code,

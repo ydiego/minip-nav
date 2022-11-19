@@ -34,7 +34,7 @@ Page({
     console.log(2333);
     const that = this;
     wx.request({
-      url: 'http://localhost:4000/api/wxInfo',
+      url: `${this.data.domain}api/wxInfo`,
       method: 'POST',
       data: {
         code,

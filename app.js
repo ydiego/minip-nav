@@ -46,7 +46,7 @@ App({
       success(res) {
         console.log(res, 8888)
         if (res.data.code === '0000') {
-          wx.setStorageSync('userInfo', res.data.data)
+          res.data.data && wx.setStorageSync('userInfo', res.data.data)
           if (!res.data.data) {
             wx.navigateTo({
               url: '/pages/login-choose/index',

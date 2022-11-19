@@ -11,8 +11,9 @@
     </button>
   </view>
   <view class="button reg">
-
-    <text>短信验证登录</text>
+    <navigator url="/pages/register/index" hover-class="navigator-hover">
+      <text>短信验证登录</text>
+    </navigator>
   </view>
   <view class="read-check">
     <t-radio checked="{{checked}}" bind:change="handleCheckChange" borderless>

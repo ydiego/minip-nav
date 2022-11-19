@@ -27,7 +27,7 @@
 }
 
 .bottom-content {
-  padding: 140rpx 36rpx;
+  padding: 36rpx;
   padding-bottom: 0;
   text-align: center;
 }
@@ -54,7 +54,7 @@
 .pages {
   position: relative;
   width: 100%;
-  height: 448px;
+  height: 896rpx;
   background-color: rgba(255, 255, 255, 0.774);
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
@@ -67,7 +67,7 @@
 .page {
   position: absolute;
   width: 93.46666%;
-  height: 996rpx;
+  height: 896rpx;
   background-size: 100%;
   transform-origin: left;
   -webkit-transform-origin: left;
