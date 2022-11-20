@@ -1,10 +1,7 @@
 <view class="showroom-detail" wx:if="{{!loading}}">
 
   <view class="thumb" wx:if="{{info.status !== 'done'}}" bindtap="toShowroom">
-    <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
-      <t-image src="{{domain}}uploads/{{info.thumb}}" mode="widthFix" show-menu-by-longpress='1'></t-image>
-    </button> -->
-    <t-image src="{{domain}}uploads/{{info.thumb}}" mode="widthFix"></t-image>
+    <image src="{{domain}}uploads/{{info.thumb}}" mode="widthFix"></image>
     <view class="enter">进入浏览</view>
   </view>
   <view class="video" wx:if="{{info.video}}">
@@ -17,7 +14,7 @@
 
   <view class="bottom-content">
     <view class="desc">{{info.statusText}} | {{info.title}}</view>
-    <navigator url="/pages/concat/concat">
+    <navigator url="/pages/concat/concat" hover-class="none">
       <view class="concat">联系我们</view>
     </navigator>
   </view>
@@ -26,16 +23,32 @@
 
     <block>
       <viwe class="total">共{{comments.length}}条评论</viwe>
-      <view class="comment" wx:for="{{comments}}">
-        <image class="avatar" src="{{item.avatar || '../../images/avatar.jpg'}}"></image>
-        <view class="body">
-          <view class="nickname">{{item.account.nickName}}</view>
-          <view class="content">{{item.content}} <text class="time">{{item.createAt}}</text></view>
+      <view class="comment-wrap" wx:for="{{comments}}">
+        <view class="comment" bindtap="handleCommentReply" data-comment-id="{{item.commentId}}" data-nick-name="{{item.account.nickName}}" data-avatar="{{item.avatar || ''}}">
+          <image class="avatar" src="{{item.avatar || '../../images/avatar.jpg'}}"></image>
+          <view class="body">
+            <view class="nickname">{{item.account.nickName}}</view>
+            <view class="content">{{item.content}}
+              <view class="time">{{item.createAt}}
+                <image class="reply-icon" src="../../images/reply.png"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="replys comment" wx:for="{{item.replies}}" wx:for-item="reply">
+          <image class="avatar" src="{{reply.avatar || '../../images/avatar.jpg'}}"></image>
+          <view class="body">
+            <view class="nickname">{{reply.nickName}}</view>
+            <view class="content">{{reply.content}} <text class="time">{{reply.createdAt}}</text></view>
+          </view>
         </view>
       </view>
-      <t-input value="{{commentContent}}" placeholder="喜欢就给个评论支持一下~" bindchange="handleCommentChange">
-        <view slot="suffix" class="send" bindtap="submitComment"> 发布 </view>
-      </t-input>
+      <view class="comment-input-wrap">
+        <t-input value="{{commentContent}}" placeholder="{{commentPlaceholder}}" bindchange="handleCommentChange" focus="{{inputFocus}}">
+          <view slot="suffix" class="send" bindtap="submitComment"> 发布 </view>
+        </t-input>
+      </view>
     </block>
   </view>
+  <view class="placeholder" wx:if="{{showPlaceholder}}" bindtap="handlePlaceholderClick"></view>
 </view>

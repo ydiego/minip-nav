@@ -6,7 +6,7 @@ export default [{
   },
   {
     icon: 'image',
-    text: '展厅',
+    text: '云展',
     url: 'pages/showroom/showroom',
     // prefix: false,
   },

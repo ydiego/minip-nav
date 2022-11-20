@@ -1,4 +1,5 @@
 .showroom-detail {
+  position: relative;
   padding-bottom: constant(safe-area-inset-bottom);
   padding-bottom: env(safe-area-inset-bottom);
 }
@@ -111,6 +112,21 @@
   z-index: -1;
 }
 
+.comment-wrap {
+  position: relative;
+  padding-bottom: 24rpx;
+}
+
+.comment-wrap::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 1rpx;
+  background-color: rgba(0, 0, 0, 0.1);
+  bottom: 0;
+  left: 108rpx;
+}
+
 
 .comments {
   padding: 0 24rpx;
@@ -119,6 +135,7 @@
 .comment {
   display: flex;
   padding: 24rpx;
+  padding-bottom: 0;
 }
 
 .total {
@@ -128,9 +145,14 @@
   font-size: 32rpx;
 }
 
+.comment-input-wrap {
+  position: relative;
+  z-index: 20;
+}
+
 .comment .body {
   flex: 1;
-  margin-left: 24rpx;
+  margin-left: 12rpx;
   display: flex;
   flex-direction: column;
   padding-top: 12rpx;
@@ -138,8 +160,8 @@
 }
 
 .comment .avatar {
-  width: 100rpx;
-  height: 100rpx;
+  width: 60rpx;
+  height: 60rpx;
   border-radius: 50%;
 }
 
@@ -150,8 +172,24 @@
 
 .comment .content {
   margin-top: 12rpx;
-  padding-bottom: 24rpx;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  /* padding-bottom: 24rpx;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
+}
+
+.comment .content .time {
+  display: inline-flex;
+  align-items: center;
+}
+
+.comment .content .reply-icon {
+  width: 48rpx;
+  height: 48rpx;
+  display: inline-block;
+  margin-left: 12rpx;
+}
+
+.replys {
+  padding-left: 90rpx;
 }
 
 .input-warp {
@@ -164,4 +202,13 @@
 
 .input-warp t-button {
   width: 40rpx;
+}
+
+.placeholder {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
 }

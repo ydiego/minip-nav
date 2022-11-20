@@ -49,7 +49,7 @@ page {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 36rpx;
+  font-size: 24rpx;
 }
 
 .entry-item .entry-icon {
@@ -66,4 +66,10 @@ page {
 .entry-item .entry-icon image {
   width: 90rpx;
   height: 100rpx;
+}
+
+.list-all {
+  margin: 24rpx 24rpx 0;
+  padding: 24rpx;
+  background-color: #fff;
 }

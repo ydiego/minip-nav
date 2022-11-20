@@ -2,6 +2,8 @@ import dayjs from 'dayjs'
 import {
   domain,
 } from '../../utils/util'
+
+const defaultCommentPlaceholder = '喜欢就给个评论支持一下~';
 Page({
 
   data: {
@@ -11,7 +13,11 @@ Page({
     loading: true,
     currentPage: -1,
     comments: [],
-    commentContent: ''
+    commentContent: '',
+    commentPlaceholder: defaultCommentPlaceholder,
+    showPlaceholder: false,
+    inputFocus: false,
+    replyInfo: null
   },
 
   onLoad(options) {
@@ -40,7 +46,6 @@ Page({
 
 
   handleCommentChange(e) {
-    console.log(e)
     this.setData({
       commentContent: e.detail.value
     })
@@ -49,7 +54,8 @@ Page({
   submitComment() {
     const {
       commentContent,
-      options
+      options,
+      replyInfo
     } = this.data;
     const user = wx.getStorageSync('userInfo');
     const _ = this;
@@ -72,6 +78,7 @@ Page({
         icon: 'none'
       });
     }
+    if (replyInfo) return this.submitReply();
     wx.request({
       url: `${_.data.domain}api/comment/create`,
       method: 'POST',
@@ -97,6 +104,40 @@ Page({
       fail(e) {
         console.log(e, 8888);
       }
+    })
+  },
+
+  submitReply() {
+    console.log(this.data.replyInfo);
+    const _ = this;
+    const {
+      commentContent,
+      replyInfo
+    } = _.data;
+    wx.request({
+      url: `${_.data.domain}api/comment/reply`,
+      method: 'POST',
+      data: {
+        content: commentContent,
+        ...replyInfo
+      },
+      success(res) {
+        if (res.data.code === '0000') {
+          _.setData({
+            commentContent: '',
+            replyInfo: null,
+            commentPlaceholder: defaultCommentPlaceholder,
+            showPlaceholder: false,
+          })
+          _.getComments();
+
+        } else {
+          wx.showToast({
+            title: '哎呀,出错了',
+            icon: 'none'
+          })
+        }
+      },
     })
   },
 
@@ -202,23 +243,29 @@ Page({
       url: `/pages/webview/webview?path=${encodeURIComponent(this.data.info.webviewUrl)}`,
     })
   },
-
-  // getPhoneNumber(e) {
-  //   console.log(e.detail);
-  //   this.savePhone(e.detail.code)
-  // },
-
-  // savePhone(code) {
-  //   console.log(2333);
-  //   wx.request({
-  //     url: 'http://localhost:4000/api/wxInfo',
-  //     method: 'POST',
-  //     data: {
-  //       code
-  //     },
-  //     success(res) {
-  //       console.log(res, 8127638)
-  //     }
-  //   })
-  // }
+  handleCommentReply(e) {
+    const {
+      commentId,
+      nickName,
+      avatar
+    } = e.currentTarget.dataset
+    this.setData({
+      commentPlaceholder: `回复 @${nickName}`,
+      inputFocus: true,
+      showPlaceholder: true,
+      replyInfo: {
+        commentId,
+        nickName,
+        avatar
+      }
+    })
+  },
+  handlePlaceholderClick() {
+    this.setData({
+      showPlaceholder: false,
+      commentContent: '',
+      commentPlaceholder: defaultCommentPlaceholder,
+      replyInfo: null
+    })
+  }
 })

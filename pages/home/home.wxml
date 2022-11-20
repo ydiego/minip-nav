@@ -42,6 +42,7 @@
   </navigator>
 </view>
 <view class="home-page-container" wx:if="{{!pageLoading}}">
+  <view class="list-all">全球热拍（共{{list.length}}个专场）</view>
   <view class="list-container" style="padding-bottom: 48rpx;">
     <list list="{{list}}"></list>
     <view style="text-align: center; color: #a4a4a4;">没有更多数据了</view>
