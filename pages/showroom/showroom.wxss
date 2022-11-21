@@ -1,5 +1,7 @@
 .showroom-container {
   padding: 0 36rpx 88rpx 36rpx;
+  padding-bottom: calc(constant(safe-area-inset-bottom) + 88rpx);
+  padding-bottom: calc(env(safe-area-inset-bottom) + 88rpx);
 }
 
 .showroom-list {

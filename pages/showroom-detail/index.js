@@ -17,7 +17,8 @@ Page({
     commentPlaceholder: defaultCommentPlaceholder,
     showPlaceholder: false,
     inputFocus: false,
-    replyInfo: null
+    replyInfo: null,
+    inputBottom: 0,
   },
 
   onLoad(options) {
@@ -41,7 +42,19 @@ Page({
   },
 
   onShareAppMessage() {
+    return {
+      title: this.data.info.title || 互动云展,
+      path: `pages/showroom-detail/index?id=${this.data.options.id}`,
+      imageUrl: this.data.domain + 'uploads/' + this.data.info.thumb
+    }
+  },
 
+  onShareTimeline() {
+    return {
+      title: this.data.info.title,
+      path: `pages/showroom-detail/index?id=${this.data.options.id}`,
+      imageUrl: this.data.domain + 'uploads/' + this.data.info.thumb
+    }
   },
 
 
@@ -265,7 +278,18 @@ Page({
       showPlaceholder: false,
       commentContent: '',
       commentPlaceholder: defaultCommentPlaceholder,
-      replyInfo: null
+      replyInfo: null,
+      inputFocus: false
+    })
+  },
+  handleInputFocus(e) {
+    this.setData({
+      inputBottom: e.detail.height - 1
+    })
+  },
+  handleInputBlur() {
+    this.setData({
+      inputBottom: 0
     })
   }
 })

@@ -23,7 +23,7 @@
 
     <block>
       <viwe class="total">共{{comments.length}}条评论</viwe>
-      <view class="comment-wrap" wx:for="{{comments}}">
+      <view class="comment-wrap" wx:for="{{comments}}" wx:key="commentId">
         <view class="comment" bindtap="handleCommentReply" data-comment-id="{{item.commentId}}" data-nick-name="{{item.account.nickName}}" data-avatar="{{item.avatar || ''}}">
           <image class="avatar" src="{{item.avatar || '../../images/avatar.jpg'}}"></image>
           <view class="body">
@@ -35,7 +35,7 @@
             </view>
           </view>
         </view>
-        <view class="replys comment" wx:for="{{item.replies}}" wx:for-item="reply">
+        <view class="replys comment" wx:for="{{item.replies}}" wx:for-item="reply" wx:key="*this">
           <image class="avatar" src="{{reply.avatar || '../../images/avatar.jpg'}}"></image>
           <view class="body">
             <view class="nickname">{{reply.nickName}}</view>
@@ -43,9 +43,8 @@
           </view>
         </view>
       </view>
-      <view class="comment-input-wrap">
-        <t-input value="{{commentContent}}" placeholder="{{commentPlaceholder}}" bindchange="handleCommentChange" focus="{{inputFocus}}">
-          <view slot="suffix" class="send" bindtap="submitComment"> 发布 </view>
+      <view class="comment-input-wrap" style="bottom: calc(constant(safe-area-inset-bottom) + {{inputBottom}}px);bottom: calc(env(safe-area-inset-bottom) + {{inputBottom}}px);">
+        <t-input value="{{commentContent}}" placeholder="{{commentPlaceholder}}" bindchange="handleCommentChange" focus="{{inputFocus}}" cursor-spacing="12rpx" adjust-position="{{false}}" bindenter="submitComment" confirm-type="send" bindfocus="handleInputFocus" bindblur="handleInputBlur">
         </t-input>
       </view>
     </block>
