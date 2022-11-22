@@ -35,9 +35,15 @@ Page({
         console.log(res, 8127638)
         if (res.data.code === '0000') {
           wx.setStorageSync('userInfo', res.data.data);
-          wx.navigateBack({
-            delta: 1,
-          })
+          if (that.data.options?.redirect) {
+            wx.redirectTo({
+              url: decodeURIComponent(that.data.options.redirect),
+            })
+          } else {
+            wx.navigateBack({
+              delta: 1,
+            })
+          }
         } else {
           wx.showToast({
             title: res.data.msg,
@@ -57,7 +63,9 @@ Page({
   },
 
   onLoad(options) {
-
+    this.setData({
+      options,
+    })
   },
 
   onReady() {

@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "互动云展",
   "usingComponents": {
     "t-radio": "tdesign-miniprogram/radio/radio"
   }

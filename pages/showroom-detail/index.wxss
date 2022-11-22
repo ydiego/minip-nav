@@ -26,11 +26,11 @@
   left: 50%;
   transform: translate(-50%);
   border-radius: 12rpx;
+  font-size: 40rpx;
 }
 
 .bottom-content {
   padding: 36rpx;
-  padding-bottom: 0;
   text-align: center;
 }
 
@@ -42,15 +42,8 @@
 }
 
 .concat {
-  color: #fff;
-  background-color: #0a223a;
   display: inline-block;
-  margin: 0 auto;
-  padding: 24rpx 0;
   text-align: center;
-  width: 400rpx;
-  border-radius: 12rpx;
-  margin: 48rpx 0;
 }
 
 .pages {
@@ -141,9 +134,10 @@
 
 .total {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  display: block;
+  display: flex;
   padding: 24rpx 0;
   font-size: 32rpx;
+  justify-content: space-between;
 }
 
 .comment-input-wrap {

@@ -11,7 +11,7 @@
     </button>
   </view>
   <view class="button reg">
-    <navigator url="/pages/register/index" hover-class="navigator-hover">
+    <navigator open-type="redirect" url="/pages/register/index?redirect={{options.redirect}}" hover-class="navigator-hover">
       <text>短信验证登录</text>
     </navigator>
   </view>

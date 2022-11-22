@@ -14,15 +14,19 @@
 
   <view class="bottom-content">
     <view class="desc">{{info.statusText}} | {{info.title}}</view>
-    <navigator url="/pages/concat/concat" hover-class="none">
-      <view class="concat">联系我们</view>
-    </navigator>
   </view>
 
   <view class="comments">
 
     <block>
-      <viwe class="total">共{{comments.length}}条评论</viwe>
+      <viwe class="total">
+        <view>
+          共{{comments.length}}条评论
+        </view>
+        <navigator url="/pages/concat/concat" hover-class="none">
+          <view class="concat">联系我们</view>
+        </navigator>
+      </viwe>
       <view class="comment-wrap" wx:for="{{comments}}" wx:key="commentId">
         <view class="comment" bindtap="handleCommentReply" data-comment-id="{{item.commentId}}" data-nick-name="{{item.account.nickName}}" data-avatar="{{item.avatar || ''}}">
           <image class="avatar" src="{{item.avatar || '../../images/avatar.jpg'}}"></image>

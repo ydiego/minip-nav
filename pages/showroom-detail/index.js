@@ -22,11 +22,16 @@ Page({
   },
 
   onLoad(options) {
+    console.log(wx.getLaunchOptionsSync(), 333)
+    const {
+      scene
+    } = wx.getLaunchOptionsSync();
     wx.showLoading({
       title: '加载中',
     })
     this.setData({
-      options
+      options,
+      scene
     }, () => {
       this.getShowroomDetail()
       this.getComments();
@@ -239,6 +244,13 @@ Page({
 
   toShowroom() {
     const userInfo = wx.getStorageSync('userInfo')
+    if (this.data.scene === 1154) {
+      return wx.showToast({
+        title: '点击右下角去小程序查看',
+        icon: 'none',
+        duration: 1500,
+      })
+    }
     if (!userInfo) {
       wx.showToast({
         title: '访问云展厅前需先注册',
@@ -246,8 +258,9 @@ Page({
         duration: 1500,
       })
       setTimeout(() => {
+        const encodeUrl = encodeURIComponent(`/pages/webview/webview?path=${encodeURIComponent(this.data.info.webviewUrl)}`)
         wx.navigateTo({
-          url: '/pages/login-choose/index',
+          url: `/pages/login-choose/index?redirect=${encodeUrl}`,
         })
       }, 1500);
       return;

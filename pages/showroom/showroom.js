@@ -58,7 +58,7 @@ Page({
 
   onShareTimeline() {
     return {
-      title: '互动艺术云展厅',
+      title: '互动美术馆',
       // path: `pages/showroom-detail/index?id=${this.data.options.id}`,
       // imageUrl: this.data.domain + 'uploads/' + this.data.info.thumb
     }

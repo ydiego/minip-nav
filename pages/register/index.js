@@ -15,7 +15,9 @@ Page({
   },
 
   onLoad(options) {
-
+    this.setData({
+      options
+    });
   },
 
   getPhoneNumber(e) {
@@ -184,9 +186,15 @@ Page({
   resolveLoginRes(res, delta) {
     if (res.data.code === '0000') {
       wx.setStorageSync('userInfo', res.data.data);
-      wx.navigateBack({
-        delta: 2,
-      })
+      if (this.data.options?.redirect) {
+        wx.redirectTo({
+          url: decodeURIComponent(this.data.options.redirect),
+        })
+      } else {
+        wx.navigateBack({
+          delta: 1,
+        })
+      }
     } else {
       wx.showToast({
         title: res.data.msg,
