@@ -2,7 +2,7 @@
 
   <view class="thumb" wx:if="{{info.status !== 'done'}}" bindtap="toShowroom">
     <image src="{{domain}}uploads/{{info.thumb}}" mode="widthFix"></image>
-    <view class="enter">进入浏览</view>
+    <view class="enter">进入展厅</view>
   </view>
   <view class="video" wx:if="{{info.video}}">
     <video src="{{domain}}uploads/{{info.video}}" style="width: 100%;"></video>
@@ -43,9 +43,12 @@
           </view>
         </view>
       </view>
-      <view class="comment-input-wrap" style="bottom: calc(constant(safe-area-inset-bottom) + {{inputBottom}}px);bottom: calc(env(safe-area-inset-bottom) + {{inputBottom}}px);">
+      <!-- <view class="comment-input-wrap" style="bottom: calc(constant(safe-area-inset-bottom) + {{inputBottom}}px);bottom: calc(env(safe-area-inset-bottom) + {{inputBottom}}px);">
         <t-input value="{{commentContent}}" placeholder="{{commentPlaceholder}}" bindchange="handleCommentChange" focus="{{inputFocus}}" cursor-spacing="12rpx" adjust-position="{{false}}" bindenter="submitComment" confirm-type="send" bindfocus="handleInputFocus" bindblur="handleInputBlur">
         </t-input>
+      </view> -->
+      <view class="comment-input-wrap">
+        <t-input value="{{commentContent}}" placeholder="{{commentPlaceholder}}" bindchange="handleCommentChange" focus="{{inputFocus}}" confirm-type="send" bindenter="submitComment"></t-input>
       </view>
     </block>
   </view>

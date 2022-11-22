@@ -1,14 +1,14 @@
 <view class="showroom-container">
   <t-search model:value="{{searchValue}}" placeholder="搜索展厅" bind:clear="clearHandle" bind:submit="handleSearch" />
 
-  <t-tabs defaultValue="{{activeTab}}" sticky stickyProps="{{ stickyProps}}" space-evenly="{{false}}" bind:change="onTabsChange" show-bottom-line="{{false}}" t-class="custom-tabs">
+  <t-tabs defaultValue="{{activeTab}}" sticky stickyProps="{{ stickyProps}}" space-evenly="{{false}}" bind:change="onTabsChange" show-bottom-line="{{false}}" t-class="custom-tabs" wx:if="{{tags.length > 1}}">
     <t-tab-panel label="{{item.name}}" value="{{item.id}}" wx:for="{{tags}}" wx:key="id"></t-tab-panel>
   </t-tabs>
   <view class="showroom-list">
     <view class="showroom-item" wx:for="{{renderList}}" wx:for-item="item" wx:key="id">
       <navigator url="/pages/showroom-detail/index?id={{item.id}}" hover-class="navigator-none">
         <view class="image-wrap">
-          <image src="{{domain}}uploads/{{item.thumb}}" mode="aspectFill"></image>
+          <image src="{{domain}}uploads/{{item.thumb}}" mode="widthFix"></image>
         </view>
         <view class="item-body">
           <view class="item-header">

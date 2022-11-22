@@ -56,6 +56,14 @@ Page({
 
   },
 
+  onShareTimeline() {
+    return {
+      title: '互动艺术云展厅',
+      // path: `pages/showroom-detail/index?id=${this.data.options.id}`,
+      // imageUrl: this.data.domain + 'uploads/' + this.data.info.thumb
+    }
+  },
+
   getShowroomTags() {
     const _ = this;
     wx.request({

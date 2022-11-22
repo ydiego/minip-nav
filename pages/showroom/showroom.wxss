@@ -32,7 +32,7 @@
   display: flex;
   justify-content: space-between;
   font-size: 32rpx;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .item-header .status {
@@ -40,6 +40,8 @@
   padding: 8rpx 9rpx;
   border-radius: 8rpx;
   color: #FFF;
+  min-width: 70rpx;
+  text-align: center;
 }
 
 .item-header .status.ing {
