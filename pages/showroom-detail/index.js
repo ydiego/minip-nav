@@ -96,7 +96,7 @@ Page({
         icon: 'none'
       });
     }
-    if (replyInfo) return this.submitReply();
+    if (replyInfo) return this.submitReply(user);
     wx.request({
       url: `${_.data.domain}api/comment/create`,
       method: 'POST',
@@ -125,7 +125,7 @@ Page({
     })
   },
 
-  submitReply() {
+  submitReply(user) {
     console.log(this.data.replyInfo);
     const _ = this;
     const {
@@ -137,7 +137,9 @@ Page({
       method: 'POST',
       data: {
         content: commentContent,
-        ...replyInfo
+        commentId: replyInfo.commentId,
+        nickName: _.desensitization(user.nickName),
+        avatar: user.avatar || ''
       },
       success(res) {
         if (res.data.code === '0000') {
@@ -159,6 +161,10 @@ Page({
     })
   },
 
+  desensitization(str) {
+    return str.substr(0, 3) + '****' + str.substr(-2);
+  },
+
   getComments() {
     const _ = this;
     wx.request({
@@ -170,7 +176,7 @@ Page({
         if (res.data.code === '0000') {
           const comments = res.data.data.map(c => {
             const oriNickName = c.account.nickName;
-            const tn = oriNickName.substr(0, 3) + '****' + oriNickName.substr(-2);
+            const tn = _.desensitization(oriNickName);
             c.account.nickName = tn;
             c.account.phone = tn;
             c.createAt = dayjs(c.createAt).format('MM.DD')

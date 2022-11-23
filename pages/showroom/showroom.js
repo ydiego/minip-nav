@@ -126,8 +126,8 @@ Page({
   },
 
   onTabsChange(event) {
-    console.log(`Change tab, tab-panel value is ${event.detail.value}.`);
-    const activeIndex = event.detail.value;
+    console.log(event);
+    const activeIndex = event.currentTarget.dataset.index;
     this.setData({
       activeTab: activeIndex
     })

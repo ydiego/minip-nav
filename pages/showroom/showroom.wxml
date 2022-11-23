@@ -1,9 +1,16 @@
 <view class="showroom-container">
   <t-search model:value="{{searchValue}}" placeholder="搜索展厅" bind:clear="clearHandle" bind:submit="handleSearch" />
 
-  <t-tabs defaultValue="{{activeTab}}" sticky stickyProps="{{ stickyProps}}" space-evenly="{{false}}" bind:change="onTabsChange" show-bottom-line="{{false}}" t-class="custom-tabs" wx:if="{{tags.length > 1}}">
+  <!-- <t-tabs defaultValue="{{activeTab}}" sticky stickyProps="{{ stickyProps}}" space-evenly="{{false}}" bind:change="onTabsChange" show-bottom-line="{{false}}" t-class="custom-tabs" wx:if="{{tags.length > 1}}">
     <t-tab-panel label="{{item.name}}" value="{{item.id}}" wx:for="{{tags}}" wx:key="id"></t-tab-panel>
-  </t-tabs>
+  </t-tabs> -->
+  <view class="tabs" wx:if="{{tags.length > 1}}">
+    <scroll-view scroll-x>
+      <view class="tabs-nav">
+        <view class="tab {{activeTab === index ? 'active' : ''}}" wx:for="{{tags}}" wx:key="id" bindtap="onTabsChange" data-index="{{index}}">{{item.name}}</view>
+      </view>
+    </scroll-view>
+  </view>
   <view class="showroom-list">
     <view class="showroom-item" wx:for="{{renderList}}" wx:for-item="item" wx:key="id">
       <navigator url="/pages/showroom-detail/index?id={{item.id}}" hover-class="navigator-none">

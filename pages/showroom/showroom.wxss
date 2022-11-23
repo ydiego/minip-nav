@@ -4,6 +4,33 @@
   padding-bottom: calc(env(safe-area-inset-bottom) + 88rpx);
 }
 
+.tabs {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-top: 24rpx;
+}
+
+.tabs .tabs-nav {
+  user-select: none;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.tabs .tab {
+  padding: 16rpx 32rpx;
+  color: #999;
+  font-size: 28rpx;
+  min-width: 60rpx;
+}
+
+.tabs .tab.active {
+  color: #000;
+  font-size: 30rpx;
+
+}
+
 .showroom-list {
   margin-top: 24rpx;
 }

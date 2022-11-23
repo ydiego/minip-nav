@@ -6,7 +6,6 @@ import {
 App({
   onLaunch: function () {
     const openid = wx.getStorageSync('openId');
-    const userInfo = wx.getStorageSync('userInfo');
     const _ = this;
     if (!openid) {
       wx.login({
@@ -31,7 +30,7 @@ App({
           })
         }
       })
-    } else if (!userInfo) {
+    } else {
       this.getUserInfo(openid)
     }
 
@@ -51,7 +50,7 @@ App({
             wx.navigateTo({
               url: '/pages/login-choose/index',
             })
-
+            wx.removeStorageSync('userInfo');
           }
         }
       }
